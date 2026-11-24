@@ -1,0 +1,151 @@
+/* =========================================================
+   Navbar Styles (PDF Theme: #211859 Indigo & #A62675 Magenta)
+   ========================================================= */
+
+.navbar-glass {
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #ece8f5;
+  box-shadow: 0 4px 20px rgba(33, 24, 89, 0.05);
+}
+
+/* Desktop Nav Link Hover Underline */
+.nav-link-item {
+  position: relative;
+  color: #1e1b4b;
+  transition: color 0.25s ease;
+}
+
+.nav-link-item::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 4px;
+  height: 2px;
+  background: linear-gradient(90deg, #211859, #a62675);
+  border-radius: 9999px;
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
+.nav-link-item:hover {
+  color: #a62675;
+}
+
+.nav-link-item:hover::after {
+  transform: scaleX(1);
+}
+
+/* Jobs Pill & Contact CTA */
+.nav-jobs-pill {
+  background: #f3effa;
+  color: #211859;
+  border: 1px solid #ddd4f0;
+  transition: all 0.25s ease;
+}
+
+.nav-jobs-pill:hover {
+  background: #211859;
+  color: #ffffff;
+}
+
+.nav-contact-cta {
+  background: linear-gradient(135deg, #a62675 0%, #8c1d61 100%);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(166, 38, 117, 0.3);
+  transition: all 0.25s ease;
+}
+
+.nav-contact-cta:hover {
+  background: linear-gradient(135deg, #8c1d61 0%, #211859 100%);
+  transform: translateY(-1px);
+}
+
+/* Dropdown & Multi-Level Flyout Cards */
+.nav-dropdown-card {
+  background: #ffffff;
+  border: 1px solid #e6e0f3;
+  box-shadow: 0 18px 38px rgba(33, 24, 89, 0.14);
+  animation: navDropIn 0.2s ease-out;
+}
+
+.nav-flyout-card {
+  background: #ffffff;
+  border: 1px solid #e6e0f3;
+  box-shadow: 0 18px 40px rgba(33, 24, 89, 0.16);
+  animation: navFlyoutIn 0.18s ease-out;
+}
+
+@keyframes navDropIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes navFlyoutIn {
+  from { opacity: 0; transform: translateX(8px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* ================= MOBILE MENU & SIDE DRAWER ================= */
+.hamburger-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #f3effa;
+  border: 1px solid #dfd6f2;
+  gap: 5px;
+  cursor: pointer;
+  transition: background 0.25s ease;
+}
+
+.hamburger-line {
+  width: 20px;
+  height: 2.2px;
+  background-color: #211859;
+  border-radius: 9999px;
+  transition: transform 0.3s ease, opacity 0.2s ease, background-color 0.25s ease;
+}
+
+.hamburger-btn.is-open { background: #211859; border-color: #211859; }
+.hamburger-btn.is-open .hamburger-line { background-color: #ffffff; }
+.hamburger-btn.is-open .line-top { transform: translateY(7.2px) rotate(45deg); }
+.hamburger-btn.is-open .line-mid { opacity: 0; transform: scaleX(0); }
+.hamburger-btn.is-open .line-bot { transform: translateY(-7.2px) rotate(-45deg); }
+
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 12, 48, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 60;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.mobile-backdrop.is-open { opacity: 1; pointer-events: auto; }
+
+.mobile-side-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: 82%;
+  max-width: 340px;
+  background: #ffffff;
+  z-index: 70;
+  box-shadow: -10px 0 35px rgba(33, 24, 89, 0.22);
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  display: flex;
+  flex-direction: column;
+}
+.mobile-side-drawer.is-open { transform: translateX(0); }
+
+@media (min-width: 1024px) {
+  .hamburger-btn,
+  .mobile-backdrop,
+  .mobile-side-drawer {
+    display: none !important;
+  }
+}

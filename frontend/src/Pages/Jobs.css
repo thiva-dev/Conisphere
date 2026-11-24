@@ -1,0 +1,58 @@
+/* =========================================================
+   Jobs Portal — Sticky Left Filter + Luxury Job Cards Feed
+   ========================================================= */
+
+.jobs-hero-bg {
+  position: relative;
+  background:
+    radial-gradient(circle at 80% 25%, rgba(166, 38, 117, 0.35) 0%, transparent 48%),
+    linear-gradient(135deg, #160f3d 0%, #211859 55%, #371654 100%);
+  overflow: hidden;
+}
+
+.jobs-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.38;
+  z-index: 0;
+}
+
+/* Sticky Left Sidebar Card */
+.jobs-filter-sidebar {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(14px);
+  border: 1.5px solid #e3dbf3;
+  box-shadow: 0 14px 36px rgba(33, 24, 89, 0.07);
+}
+
+/* Right Feed Job Card */
+.job-feed-card {
+  background: #ffffff;
+  border: 1.5px solid #e6e0f3;
+  box-shadow: 0 10px 28px rgba(33, 24, 89, 0.06);
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.job-feed-card:hover {
+  transform: translateY(-4px);
+  border-color: #a62675;
+  box-shadow: 0 20px 44px rgba(166, 38, 117, 0.14);
+}
+
+.job-learn-btn {
+  background: #f8f7fc;
+  color: #211859;
+  border: 1.5px solid #dcd3ef;
+  transition: all 0.25s ease;
+}
+
+.job-learn-btn:hover {
+  background: #211859;
+  color: #ffffff;
+  border-color: #211859;
+}

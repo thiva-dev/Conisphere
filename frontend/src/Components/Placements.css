@@ -1,0 +1,146 @@
+/* =========================================================
+   WhyChooseUs Card Hover & Image Zoom Animations
+   ========================================================= */
+
+.why-card {
+  background: #ffffff;
+  border: 1px solid #e7e1f4;
+  box-shadow: 0 10px 26px rgba(33, 24, 89, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(166, 38, 117, 0.4);
+  box-shadow: 0 18px 36px rgba(33, 24, 89, 0.13);
+}
+
+/* Card Top Indigo-to-Magenta Line (Hover-la spread aagum) */
+.why-top-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #211859, #a62675);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.why-card:hover .why-top-bar {
+  transform: scaleX(1);
+}
+
+/* Image Smooth Zoom */
+.why-card img {
+  transition: transform 0.45s ease;
+}
+
+.why-card:hover img {
+  transform: scale(1.07);
+}
+
+/* Checkmark Circle Color Change on Hover */
+.why-check-badge {
+  background: #f3effa;
+  color: #211859;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.why-card:hover .why-check-badge {
+  background: #a62675;
+  color: #ffffff;
+}
+
+
+/* ================= PART 1: WHY CHOOSE US CARDS ================= */
+.why-card {
+  background: #ffffff;
+  border: 1px solid #e7e1f4;
+  box-shadow: 0 10px 26px rgba(33, 24, 89, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.why-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(166, 38, 117, 0.4);
+  box-shadow: 0 18px 36px rgba(33, 24, 89, 0.13);
+}
+
+.why-top-bar {
+  height: 4px;
+  background: linear-gradient(90deg, #211859, #a62675);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.why-card:hover .why-top-bar { transform: scaleX(1); }
+.why-card img { transition: transform 0.45s ease; }
+.why-card:hover img { transform: scale(1.07); }
+
+.why-check-badge {
+  background: #f3effa;
+  color: #211859;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.why-card:hover .why-check-badge {
+  background: #a62675;
+  color: #ffffff;
+}
+
+/* ================= PART 2: PLACEMENT OFFER CARDS ================= */
+
+.offer-card {
+  background: #ffffff;
+  border: 1.5px solid #dfd7f2;
+  box-shadow: 0 12px 28px rgba(33, 24, 89, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.offer-card:hover {
+  transform: translateY(-8px);
+  border-color: #a62675;
+  box-shadow: 0 22px 44px rgba(166, 38, 117, 0.18);
+}
+
+/* Mobile Horizontal Scrollbar Hide (Clean Swipe Look) */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+
+/* ================= PART 3: COLLABORATING COMPANIES ================= */
+.collab-box {
+  background: linear-gradient(135deg, #f6f3fc 0%, #ffffff 55%, #f3effa 100%);
+  border: 1.5px solid #e3dbf3;
+  box-shadow: 0 14px 36px rgba(33, 24, 89, 0.06);
+}
+
+.collab-logo-card {
+  background: #ffffff;
+  border: 1px solid #eae4f6;
+  box-shadow: 0 6px 18px rgba(33, 24, 89, 0.05);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.collab-logo-card:hover {
+  transform: translateY(-4px);
+  border-color: #a62675;
+  box-shadow: 0 12px 26px rgba(166, 38, 117, 0.14);
+}
+
+.collab-swiper {
+  padding: 10px 4px 38px !important;
+}
+
+.collab-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #cfc6e4;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.collab-swiper .swiper-pagination-bullet-active {
+  width: 22px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #211859, #a62675);
+}

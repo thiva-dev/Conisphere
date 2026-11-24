@@ -1,0 +1,44 @@
+/* ================= PART 1: VIDEO TESTIMONIAL CARDS ================= */
+.video-review-card {
+  background: linear-gradient(155deg, #1d154f 0%, #211859 60%, #4b1b59 100%);
+  border: 1.5px solid #35297a;
+  box-shadow: 0 14px 32px rgba(33, 24, 89, 0.16);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.video-review-card:hover {
+  transform: translateY(-6px);
+  border-color: #a62675;
+  box-shadow: 0 22px 44px rgba(166, 38, 117, 0.28);
+}
+
+.video-play-btn {
+  background: linear-gradient(135deg, #a62675 0%, #d946a8 100%);
+  box-shadow: 0 0 0 8px rgba(166, 38, 117, 0.25);
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.video-review-card:hover .video-play-btn {
+  transform: scale(1.12);
+  box-shadow: 0 0 0 12px rgba(217, 70, 168, 0.35);
+}
+
+/* ================= PART 2: GOOGLE REVIEW CARDS ================= */
+.google-summary-bar {
+  background: linear-gradient(135deg, #f8f7fc 0%, #ffffff 55%, #f4effb 100%);
+  border: 1px solid #e3dbf3;
+  box-shadow: 0 10px 26px rgba(33, 24, 89, 0.05);
+}
+
+.feedback-card {
+  background: #ffffff;
+  border: 1px solid #e7e1f4;
+  box-shadow: 0 8px 22px rgba(33, 24, 89, 0.05);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.feedback-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(166, 38, 117, 0.45);
+  box-shadow: 0 16px 34px rgba(33, 24, 89, 0.11);
+}

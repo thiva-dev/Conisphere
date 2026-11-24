@@ -1,0 +1,61 @@
+/* =========================================================
+   Light & Classy Footer (Cognisphere #211859 & #A62675 Theme)
+   ========================================================= */
+
+.footer-surface {
+  background: linear-gradient(180deg, #f5f2fb 0%, #faf9fd 60%, #ffffff 100%);
+  border-top: 2px solid #e4dcf3;
+}
+
+.footer-card {
+  background: #ffffff;
+  border: 1px solid #e7e1f4;
+  box-shadow: 0 8px 22px rgba(33, 24, 89, 0.05);
+}
+
+/* Social Media Circular Buttons */
+.footer-social-btn {
+  background: #ffffff;
+  color: #211859;
+  border: 1px solid #e2daf3;
+  box-shadow: 0 3px 10px rgba(33, 24, 89, 0.06);
+  transition: all 0.25s ease;
+}
+
+.footer-social-btn:hover {
+  background: linear-gradient(135deg, #211859, #a62675);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 18px rgba(166, 38, 117, 0.28);
+}
+
+/* Region & Branch Interactive Tabs */
+.footer-tab-pill {
+  background: #ffffff;
+  color: #211859;
+  border: 1px solid #dfd7f0;
+  transition: all 0.22s ease;
+}
+
+.footer-tab-pill:hover {
+  border-color: #a62675;
+  color: #a62675;
+}
+
+.footer-tab-pill.is-active {
+  background: linear-gradient(135deg, #211859, #a62675);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(166, 38, 117, 0.25);
+}
+
+/* Subtle Link Hover Shift */
+.footer-link-item {
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-link-item:hover {
+  color: #a62675;
+  transform: translateX(3px);
+}

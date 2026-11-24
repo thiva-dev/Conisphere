@@ -1,0 +1,150 @@
+/* ================= PART 1: ON-PAGE REGISTER SECTION ================= */
+.reg-left-card {
+  background: linear-gradient(145deg, #f8f7fc 0%, #ffffff 60%, #f3effa 100%);
+  border: 1px solid #e3dbf3;
+  box-shadow: 0 14px 36px rgba(33, 24, 89, 0.07);
+}
+
+.reg-quick-tile {
+  background: #ffffff;
+  border: 1px solid #e7e1f4;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.reg-quick-tile:hover {
+  transform: translateY(-4px);
+  border-color: #a62675;
+  box-shadow: 0 10px 24px rgba(166, 38, 117, 0.14);
+}
+
+.reg-form-card {
+  background: #ffffff;
+  border: 1.5px solid #e4dcf3;
+  box-shadow: 0 18px 42px rgba(33, 24, 89, 0.08);
+}
+.reg-left-card:hover {
+  border-color: rgba(166, 38, 117, 0.45);
+  box-shadow: 0 20px 44px rgba(33, 24, 89, 0.11);
+}
+/* Shared Clean Inputs */
+.reg-input {
+  background: #faf9fd;
+  border: 1px solid #dcd3ef;
+  color: #211859;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.reg-input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #a62675;
+  box-shadow: 0 0 0 3px rgba(166, 38, 117, 0.14);
+}
+
+/* ================= PART 1: ON-PAGE REGISTER SECTION ================= */
+.reg-left-card {
+  background: #ffffff;
+  border: 1.5px solid #e4dcf3;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 14px 36px rgba(33, 24, 89, 0.07);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.reg-left-card:hover {
+  border-color: rgba(166, 38, 117, 0.45);
+  box-shadow: 0 20px 44px rgba(33, 24, 89, 0.12);
+}
+
+/* Photo top edge-la tight-aa fit aagi full card-ah cover pannum */
+.reg-left-img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: top center;
+  transition: transform 0.45s ease;
+}
+
+.reg-left-card:hover .reg-left-img {
+  transform: scale(1.03);
+}
+/* ================= EXACT RECAPTCHA V2 BOX UI & ANIMATION ================= */
+.recaptcha-box {
+  width: 100%;
+  max-width: 304px;
+  min-height: 76px;
+  background: #f9f9f9;
+  border: 1px solid #d3d3d3;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.recaptcha-checkbox {
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  border: 2px solid #c1c1c1;
+  border-radius: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.recaptcha-box:hover .recaptcha-checkbox {
+  border-color: #9e9e9e;
+}
+
+.recaptcha-tick-pop {
+  animation: tickPop 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes tickPop {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ================= PART 2: EXECUTIVE SPLIT OFFER POPUP ================= */
+.popup-backdrop {
+  animation: popupFade 0.28s ease-out;
+}
+
+.popup-modal-shell {
+  animation: popupRise 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 30px 70px rgba(10, 6, 34, 0.52);
+}
+
+.popup-dark-banner {
+  background-color: #0e0929;
+  background-image:
+    radial-gradient(circle at 50% 62%, rgba(166, 38, 117, 0.55) 0%, rgba(79, 46, 173, 0.35) 38%, rgba(14, 9, 41, 0.95) 75%),
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 100% 100%, 22px 22px;
+}
+
+.mode-pill-btn {
+  background: #ffffff;
+  color: #211859;
+  border: 1px solid #dcd3ef;
+  transition: all 0.22s ease;
+}
+
+.mode-pill-btn:hover {
+  border-color: #a62675;
+  color: #a62675;
+}
+
+.mode-pill-btn.is-active {
+  background: #211859;
+  color: #ffffff;
+  border-color: #211859;
+  box-shadow: 0 4px 12px rgba(33, 24, 89, 0.25);
+}
+
+@keyframes popupFade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes popupRise {
+  from { opacity: 0; transform: translateY(22px) scale(0.96); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script src="https://www.google.com/recaptcha/api.js?render=explicit" async defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="boot-loader" style="position:fixed;inset:0;z-index:9999;background:#f8f7fc;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:opacity 0.25s ease;">
+      <svg width="72" height="72" viewBox="0 0 80 80" style="overflow:visible;">
+        <circle cx="40" cy="40" r="32" fill="none" stroke="#e8e1f5" stroke-width="3.5" />
+        <circle cx="40" cy="40" r="32" fill="none" stroke="#a62675" stroke-width="3.8" stroke-linecap="round" stroke-dasharray="100 200">
+          <animateTransform attributeName="transform" type="rotate" from="0 40 40" to="360 40 40" dur="1.1s" repeatCount="indefinite" />
+        </circle>
+        <circle cx="40" cy="40" r="24" fill="none" stroke="#E0B04A" stroke-width="2" stroke-dasharray="6 7" stroke-linecap="round">
+          <animateTransform attributeName="transform" type="rotate" from="360 40 40" to="0 40 40" dur="5s" repeatCount="indefinite" />
+        </circle>
+        <path d="M40 25 L52 30 V39 C52 47 46.8 53.5 40 56 C33.2 53.5 28 47 28 39 V30 L40 25 Z" fill="#211859" />
+        <path d="M35.2 40.6 L38.6 44 L45.4 36.6" fill="none" stroke="#E0B04A" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

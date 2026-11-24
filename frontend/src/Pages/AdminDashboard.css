@@ -1,0 +1,49 @@
+.dash-kpi-card {
+  background: #ffffff;
+  border: 1px solid #e6e0f3;
+  box-shadow: 0 8px 22px rgba(33, 24, 89, 0.05);
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.dash-kpi-card:hover {
+  transform: translateY(-3px);
+  border-color: #a62675;
+}
+
+/* Excel-Style Crisp Spreadsheet Grid */
+.excel-table-wrap {
+  background: #ffffff;
+  border: 1.5px solid #dfd7f0;
+  box-shadow: 0 12px 32px rgba(33, 24, 89, 0.06);
+}
+
+.excel-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.excel-table thead th {
+  background: #211859;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 12px 14px;
+  border: 1px solid #32267a;
+  white-space: nowrap;
+}
+
+.excel-table tbody td {
+  padding: 10px 14px;
+  border: 1px solid #ece7f6;
+  color: #211859;
+  vertical-align: middle;
+}
+
+.excel-table tbody tr:nth-child(even) {
+  background-color: #faf9fd;
+}
+
+.excel-table tbody tr:hover {
+  background-color: #f3effa;
+}

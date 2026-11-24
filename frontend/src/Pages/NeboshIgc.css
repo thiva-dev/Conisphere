@@ -1,0 +1,297 @@
+/* =========================================================
+   NEBOSH IGC Page — Split Hero + Overlapping Glass Stat Bar
+   Theme: Deep Indigo (#211859), Magenta (#A62675), Gold (#E0B04A)
+   ========================================================= */
+
+.nebosh-hero-bg {
+  background:
+    radial-gradient(circle at 80% 25%, rgba(166, 38, 117, 0.32) 0%, transparent 48%),
+    radial-gradient(circle at 12% 80%, rgba(79, 70, 229, 0.28) 0%, transparent 45%),
+    linear-gradient(135deg, #160f3d 0%, #211859 55%, #371654 100%);
+}
+
+/* Right Banner Image Outer Border Frame (Visible Border + Inner Gap) */
+.nebosh-banner-frame {
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 0 0 4px rgba(166, 38, 117, 0.22),
+    0 22px 48px rgba(10, 6, 34, 0.48);
+  backdrop-filter: blur(10px);
+}
+
+/* WhatsApp Green CTA ("Chat with Ms.Jaya Bharathi") */
+.nebosh-wa-cta {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 24px rgba(37, 211, 102, 0.34);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, filter 0.25s ease;
+}
+
+.nebosh-wa-cta:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.06);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.48);
+}
+
+/* Overlapping Floating 4-Stat Card (Reference Layout Upgraded with Beveled Glass!) */
+.nebosh-floating-stats {
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1.5px solid rgba(255, 255, 255, 0.95);
+  box-shadow:
+    0 24px 54px -12px rgba(33, 24, 89, 0.2),
+    0 8px 20px -4px rgba(166, 38, 117, 0.09),
+    inset 0 2px 4px #ffffff;
+}
+
+.nebosh-stat-tile {
+  transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.nebosh-stat-tile:hover {
+  background-color: rgba(243, 239, 250, 0.55);
+  transform: translateY(-2px);
+}
+
+
+/* ================= GOLD LEARNING PARTNER RIBBON ================= */
+.gold-partner-strip {
+  background: linear-gradient(135deg, #1b134a 0%, #211859 55%, #4b1b59 100%);
+  border: 1.5px solid rgba(224, 176, 74, 0.45);
+  box-shadow: 0 18px 42px rgba(33, 24, 89, 0.14);
+}
+
+/* ================= QUESTION PAPERS SECTION ================= */
+.paper-download-card {
+  background: #ffffff;
+  border: 1.5px solid #e4dcf3;
+  box-shadow: 0 10px 26px rgba(33, 24, 89, 0.06);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.28s ease,
+              box-shadow 0.28s ease;
+}
+
+.paper-download-card:hover {
+  transform: translateY(-4px);
+  border-color: #a62675;
+  box-shadow: 0 18px 38px rgba(166, 38, 117, 0.14);
+}
+
+.paper-pdf-icon {
+  background: linear-gradient(135deg, #f3effa 0%, #ebe2f8 100%);
+  color: #a62675;
+  border: 1px solid #dfd4f2;
+  transition: background 0.28s ease, color 0.28s ease;
+}
+
+.paper-download-card:hover .paper-pdf-icon {
+  background: linear-gradient(135deg, #211859 0%, #a62675 100%);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+/* ================= PART 4: SWIPEABLE TABBED SYLLABUS ================= */
+.syllabus-shell-card {
+  background: #ffffff;
+  border: 1.5px solid #e4dcf3;
+  box-shadow: 0 18px 44px rgba(33, 24, 89, 0.08);
+}
+
+.syllabus-tab-btn {
+  color: #64748b;
+  transition: color 0.25s ease;
+}
+
+.syllabus-tab-btn:hover {
+  color: #211859;
+}
+
+.syllabus-tab-btn.is-active {
+  color: #211859;
+}
+
+/* Smooth Sliding Bottom Line (Matches Reference Active Tab Bar!) */
+.syllabus-sliding-line {
+  height: 3px;
+  background: linear-gradient(90deg, #211859 0%, #a62675 100%);
+  border-radius: 9999px;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.syllabus-topic-item {
+  background: #faf9fd;
+  border: 1px solid #ece7f6;
+  transition: transform 0.22s ease, border-color 0.22s ease, background-color 0.22s ease;
+}
+
+.syllabus-topic-item:hover {
+  background: #ffffff;
+  transform: translateX(4px);
+  border-color: rgba(166, 38, 117, 0.45);
+}
+
+.syllabus-assess-box {
+  background: linear-gradient(135deg, #f6f3fc 0%, #ffffff 100%);
+  border: 1px solid #e2daf3;
+  border-left: 4px solid #a62675;
+}
+
+/* Mark & Result Bottom Cards */
+.mark-result-card {
+  background: linear-gradient(145deg, #f8f7fc 0%, #ffffff 65%, #f3effa 100%);
+  border: 1.5px solid #e3dbf3;
+  box-shadow: 0 12px 30px rgba(33, 24, 89, 0.06);
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.mark-result-card:hover {
+  transform: translateY(-4px);
+  border-color: #a62675;
+  box-shadow: 0 18px 38px rgba(166, 38, 117, 0.13);
+}
+
+/* ================= PART 5: SAMPLE CERTIFICATE, ONLINE MODE & WHY CHOOSE ================= */
+.sample-cert-card {
+  background: #ffffff;
+  border: 2px solid rgba(224, 176, 74, 0.55);
+  box-shadow: 0 18px 42px rgba(33, 24, 89, 0.1);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sample-cert-card:hover {
+  transform: translateY(-4px);
+  border-color: #a62675;
+  box-shadow: 0 24px 50px rgba(166, 38, 117, 0.18);
+}
+
+/* Centered Online Training Showcase Box */
+.online-mode-showcase {
+  background: linear-gradient(145deg, #ffffff 0%, #f7f4fc 60%, #f1eafb 100%);
+  border: 1.5px solid #e2daf3;
+  box-shadow: 0 20px 46px rgba(33, 24, 89, 0.08);
+}
+
+.online-feature-pill {
+  background: #ffffff;
+  border: 1px solid #eae4f6;
+  box-shadow: 0 4px 12px rgba(33, 24, 89, 0.04);
+  transition: transform 0.22s ease, border-color 0.22s ease;
+}
+
+.online-feature-pill:hover {
+  transform: translateX(4px);
+  border-color: rgba(166, 38, 117, 0.45);
+}
+
+/* Why Choose Cards (Perfect Equal Height Alignment) */
+.why-nebosh-card {
+  background: #ffffff;
+  border: 1.5px solid #e6e0f3;
+  box-shadow: 0 10px 26px rgba(33, 24, 89, 0.05);
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 0.28s ease,
+              box-shadow 0.28s ease;
+}
+
+.why-nebosh-card:hover {
+  transform: translateY(-6px);
+  border-color: #a62675;
+  box-shadow: 0 20px 42px rgba(166, 38, 117, 0.14);
+}
+
+.why-icon-halo {
+  background: linear-gradient(135deg, #f3effa 0%, #ebe2f8 100%);
+  color: #211859;
+  border: 1px solid #dfd4f2;
+  transition: background 0.28s ease, color 0.28s ease;
+}
+
+.why-nebosh-card:hover .why-icon-halo {
+  background: linear-gradient(135deg, #211859 0%, #a62675 100%);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+
+/* ================= PART 6 (NeboshIgc2): TABLES, CARDS & PROCESS ================= */
+.igc-exec-card {
+  background: #ffffff;
+  border: 1.5px solid #e4dcf3;
+  box-shadow: 0 12px 30px rgba(33, 24, 89, 0.06);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.igc-exec-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(166, 38, 117, 0.45);
+  box-shadow: 0 18px 38px rgba(33, 24, 89, 0.11);
+}
+
+.igc-filter-pill {
+  background: #ffffff;
+  color: #211859;
+  border: 1px solid #dfd7f0;
+  transition: all 0.22s ease;
+}
+
+.igc-filter-pill:hover {
+  border-color: #a62675;
+  color: #a62675;
+}
+
+.igc-filter-pill.is-active {
+  background: linear-gradient(135deg, #211859, #a62675);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 6px 14px rgba(166, 38, 117, 0.26);
+}
+
+.igc-table-wrap {
+  background: #ffffff;
+  border: 1.5px solid #e2daf3;
+  box-shadow: 0 14px 36px rgba(33, 24, 89, 0.07);
+}
+
+.igc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.igc-table thead th {
+  background: linear-gradient(90deg, #211859 0%, #372378 100%);
+  color: #ffffff;
+  font-weight: 600;
+  text-align: left;
+  padding: 13px 18px;
+  white-space: nowrap;
+}
+
+.igc-table tbody td {
+  padding: 12px 18px;
+  border-bottom: 1px solid #f0ebf8;
+  color: #211859;
+}
+
+.igc-table tbody tr:nth-child(even) {
+  background-color: #faf9fd;
+}
+
+.igc-table tbody tr:hover {
+  background-color: #f3effa;
+}
+
+.igc-enroll-pill {
+  background: #ffffff;
+  border: 1.5px solid #e4dcf3;
+  box-shadow: 0 8px 20px rgba(33, 24, 89, 0.05);
+  transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.igc-enroll-pill:hover {
+  transform: translateY(-3px);
+  border-color: #a62675;
+  box-shadow: 0 14px 28px rgba(166, 38, 117, 0.14);
+}

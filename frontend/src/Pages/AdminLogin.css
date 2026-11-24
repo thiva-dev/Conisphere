@@ -1,0 +1,60 @@
+/* =========================================================
+   Admin Login Minimal Luxury Styles (Logo + BG Banner Ready)
+   ========================================================= */
+
+.login-page-shell {
+  position: relative;
+  overflow: hidden;
+  /* Image podadha varaikum fallback: Light-meets-Dark Indigo/Magenta vibe */
+  background: radial-gradient(circle at 20% 20%, rgba(243, 239, 250, 0.95) 0%, transparent 45%),
+              linear-gradient(135deg, #1b134a 0%, #211859 55%, #5a1f73 100%);
+}
+
+/* Full-Cover Background Banner Image */
+.login-bg-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* Subtle Brand-Tinted Glass Overlay (Card crisp-aa pop aaga) */
+.login-bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(24, 17, 68, 0.58) 0%,
+    rgba(33, 24, 89, 0.48) 55%,
+    rgba(166, 38, 117, 0.35) 100%
+  );
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
+
+/* Centered Glass-White Login Card */
+.login-glass-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: 0 28px 65px rgba(13, 8, 42, 0.38);
+}
+
+.login-input {
+  background: #faf9fd;
+  border: 1px solid #dcd3ef;
+  color: #211859;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.login-input:focus {
+  outline: none;
+  background: #ffffff;
+  border-color: #a62675;
+  box-shadow: 0 0 0 3px rgba(166, 38, 117, 0.15);
+}

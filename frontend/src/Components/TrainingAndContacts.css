@@ -1,0 +1,103 @@
+/* ================= PART 1: DOUBLE-RING ARCH & STEP CARDS ================= */
+.approach-arch-outer {
+  position: relative;
+  background: linear-gradient(135deg, #211859 0%, #5c2074 55%, #a62675 100%);
+  border-radius: 50% 50% 50% 0;
+  box-shadow: 0 24px 50px rgba(33, 24, 89, 0.2);
+}
+
+/* Subtle Offset Decorative Ring Behind Arch */
+.approach-arch-outer::before {
+  content: "";
+  position: absolute;
+  inset: -10px;
+  border-radius: 50% 50% 50% 0;
+  border: 2px rgba(166, 38, 117, 0.35);
+  pointer-events: none;
+}
+
+.approach-arch-outer img {
+  transition: transform 0.5s ease;
+}
+
+.approach-arch-outer:hover img {
+  transform: scale(1.05);
+}
+
+/* Safety Green Tick Badge  */
+.approach-check-badge {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #a7f3d0;
+  transition: all 0.25s ease;
+}
+
+.approach-step-card:hover .approach-check-badge {
+  background: #059669;
+  color: #ffffff;
+  border-color: #059669;
+}
+/* ================= PART 2: RICH COURSE CARDS SLIDER ================= */
+.courses-swiper {
+  padding: 14px 4px 46px !important;
+}
+
+.course-pro-card {
+  background: #ffffff;
+  border: 1px solid #e7e1f4;
+  box-shadow: 0 10px 26px rgba(33, 24, 89, 0.06);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-pro-card:hover {
+  transform: translateY(-6px);
+  border-color: #a62675;
+  box-shadow: 0 20px 40px rgba(33, 24, 89, 0.13);
+}
+
+.courses-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: #cfc6e4;
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.courses-swiper .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #211859, #a62675);
+}
+
+/* ================= PART 3: INTERACTIVE REGIONAL SUPPORT ================= */
+.region-filter-pill {
+  background: #f8f7fc;
+  color: #211859;
+  border: 1px solid #e2daf3;
+  transition: all 0.25s ease;
+}
+
+.region-filter-pill:hover {
+  border-color: #a62675;
+  color: #a62675;
+}
+
+.region-filter-pill.is-active {
+  background: linear-gradient(135deg, #211859, #a62675);
+  color: #ffffff;
+  border-color: transparent;
+  box-shadow: 0 6px 16px rgba(166, 38, 117, 0.28);
+}
+
+.region-pro-card {
+  background: #ffffff;
+  border: 1px solid #e6e0f3;
+  box-shadow: 0 8px 20px rgba(33, 24, 89, 0.05);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.region-pro-card:hover {
+  transform: translateY(-4px);
+  border-color: #a62675;
+  box-shadow: 0 14px 30px rgba(33, 24, 89, 0.11);
+}

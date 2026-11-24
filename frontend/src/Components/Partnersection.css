@@ -1,0 +1,166 @@
+/* =========================================================
+   PartnersSection Boxed Styles (PDF Theme: #211859 & #A62675)
+   ========================================================= */
+
+.partners-box-bg {
+  background-color: #211859;
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(135deg, #1b134a 0%, #211859 55%, #2a1754 100%);
+  background-size: 24px 24px, 100% 100%;
+  border: 1px solid rgba(224, 176, 74, 0.28);
+  box-shadow: 0 20px 45px rgba(33, 24, 89, 0.18);
+}
+
+/* Pulsing Magenta Glow Behind Partner Cards */
+.partners-glow {
+  background: radial-gradient(
+    circle,
+    rgba(166, 38, 117, 0.42) 0%,
+    rgba(166, 38, 117, 0) 68%
+  );
+  animation: partners-pulse 4.5s ease-in-out infinite;
+}
+
+/* Load-in Rise + Gentle Float */
+.partner-card {
+  opacity: 0;
+  animation: partners-rise 0.75s ease forwards, partners-float 6s ease-in-out infinite;
+}
+
+@keyframes partners-rise {
+  from {
+    opacity: 0;
+    translate: 0 30px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes partners-float {
+  0%, 100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -6px;
+  }
+}
+
+@keyframes partners-pulse {
+  0%, 100% {
+    opacity: 0.65;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partner-card,
+  .partners-glow {
+    animation: none;
+    opacity: 1;
+  }
+}
+
+
+
+/* =========================================================
+   LearnersSection Custom Styles (White BG + 3D Curve Turn)
+   ========================================================= */
+
+.learners-section {
+  background-color: #ffffff;
+}
+
+/* 3D Perspective for Smooth Curved Turning */
+.learners-swiper {
+  perspective: 1200px;
+  padding-top: 16px !important;
+  padding-bottom: 24px !important;
+}
+
+/* Side Curved Cards vs Active Center Card */
+.learner-slide-card {
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  opacity: 0.82;
+}
+
+.swiper-slide-active .learner-slide-card {
+  opacity: 1;
+}
+
+/* Portrait Photo Frame */
+.learner-photo-frame {
+  background: #f8f7fc;
+  border: 1px solid #ece7f6;
+  box-shadow: 0 12px 28px rgba(33, 24, 89, 0.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+.swiper-slide-active .learner-photo-frame {
+  border-color: rgba(166, 38, 117, 0.35);
+  box-shadow: 0 18px 36px rgba(33, 24, 89, 0.14);
+}
+
+.learner-photo-frame:hover img {
+  transform: scale(1.06);
+}
+
+.learner-photo-frame img {
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Course Badge Button (Matches PDF Indigo + Magenta Theme) */
+.learner-course-btn {
+  background: linear-gradient(135deg, #211859 0%, #372985 100%);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(33, 24, 89, 0.22);
+  transition: all 0.28s ease;
+}
+
+.learner-course-btn:hover {
+  background: linear-gradient(135deg, #a62675 0%, #8c1d61 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(166, 38, 117, 0.32);
+}
+
+/* Subtle Nav Arrows on White Background */
+.learner-nav-btn {
+  background: #ffffff;
+  color: #211859;
+  border: 1px solid #e4dcf2;
+  box-shadow: 0 6px 18px rgba(33, 24, 89, 0.1);
+  transition: all 0.25s ease;
+}
+
+.learner-nav-btn:hover {
+  background: #a62675;
+  color: #ffffff;
+  border-color: #a62675;
+  transform: scale(1.08);
+}
+
+/* Custom Pagination Dots */
+.learner-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: #d8d0ea;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.learner-dot:hover {
+  background: #a62675;
+  opacity: 0.7;
+}
+
+.learner-dot.is-active {
+  width: 24px;
+  background: linear-gradient(90deg, #211859, #a62675);
+}
