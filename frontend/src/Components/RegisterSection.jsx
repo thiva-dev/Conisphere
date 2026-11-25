@@ -234,7 +234,7 @@ export default function RegisterSection() {
               ) : (
                 <form onSubmit={(e) => handleFormSubmit(e, 'home_page')} className="space-y-3">
                   <div className="flex items-center justify-between mb-1">
-                    <h3 className="text-lg font-bold text-[#211859]">Request Free Counselling</h3>
+                    <h3 className="text-lg font-bold text-[#211859]">Register Now</h3>
                   </div>
 
                   {pageError && (
@@ -378,7 +378,7 @@ export default function RegisterSection() {
                     onClick={() => { setPopupSuccess(''); setShowPopup(false); }}
                     className="brand-glow-btn mt-6 px-7 py-2.5 rounded-full text-xs font-semibold cursor-pointer"
                   >
-                    Back to Website
+                    Back to Home
                   </button>
                 </div>
               ) : (
@@ -388,7 +388,7 @@ export default function RegisterSection() {
                       <Sparkles className="w-3.5 h-3.5" /> NEBOSH Gold Partner Admissions
                     </span>
                     <h3 className="text-xl font-bold text-[#211859] mt-0.5">
-                      Claim Your Live Online Seat
+                      Request for Enquiry
                     </h3>
                   </div>
 
