@@ -1,32 +1,56 @@
 import threading
 import traceback
+import requests
 from django.conf import settings
-from django.core.mail import EmailMultiAlternatives, get_connection
-from django.utils.html import escape
 from django.utils import timezone
+from django.utils.html import escape
+
+BREVO_API_URL = 'https://api.brevo.com/v3/smtp/email'
+
+
+def _send_via_brevo(api_key, sender_name, sender_email, to_email, reply_to_email, reply_to_name, subject, html_body, plain_body):
+    resp = requests.post(
+        BREVO_API_URL,
+        headers={
+            'api-key': api_key,
+            'Content-Type': 'application/json',
+            'accept': 'application/json',
+        },
+        json={
+            'sender': {'name': sender_name, 'email': sender_email},
+            'to': [{'email': to_email}],
+            'replyTo': {'email': reply_to_email, 'name': reply_to_name},
+            'subject': subject,
+            'htmlContent': html_body,
+            'textContent': plain_body,
+        },
+        timeout=10,
+    )
+    if resp.status_code not in (200, 201, 202):
+        raise RuntimeError(f"Brevo API {resp.status_code}: {resp.text}")
 
 
 def _send_emails_task(enquiry):
     created_str = timezone.localtime(enquiry.created_at).strftime('%d %b %Y, %I:%M %p')
+    batch_text = f"{enquiry.batch.course_name} ({enquiry.batch.date_range})" if getattr(enquiry, 'batch', None) else 'Not Selected'
 
-    # Admin + Office Team list (duplicates remove pannum)
     team_recipients = list(dict.fromkeys([
         email for email in [settings.ADMIN_EMAIL, *settings.OFFICE_TEAM_EMAILS] if email
     ]))
 
     subject_team = f"New HSE Course Enquiry from {enquiry.full_name}"
-
     plain_team = (
-        f"Hello Team,\n\n"
-        f"A new student enquiry has been received on the Cognisphere website.\n\n"
-        f"Name      : {enquiry.full_name}\n"
-        f"Email     : {enquiry.email}\n"
-        f"WhatsApp  : {enquiry.whatsapp_number}\n"
-        f"Course    : {enquiry.preferred_course or 'Not Specified'}\n"
-        f"City      : {enquiry.city or 'Not Specified'}\n"
-        f"Source    : {enquiry.source}\n"
-        f"Time      : {created_str}\n\n"
-        f"Please follow up with the candidate within 24 hours."
+        f"New Student Enquiry Received\n"
+        f"----------------------------\n"
+        f"Name     : {enquiry.full_name}\n"
+        f"Email    : {enquiry.email}\n"
+        f"WhatsApp : {enquiry.whatsapp_number}\n"
+        f"Course   : {enquiry.preferred_course or 'Not Specified'}\n"
+        f"Batch    : {batch_text}\n"
+        f"City     : {enquiry.city or 'Not Specified'}\n"
+        f"Source   : {enquiry.source}\n"
+        f"Notes    : {enquiry.notes or '-'}\n"
+        f"Time     : {created_str}\n"
     )
 
     html_team = f"""
@@ -36,21 +60,21 @@ def _send_emails_task(enquiry):
         <p style="margin: 4px 0 0; font-size: 12px; color: #e2daf3;">Cognisphere Management and Consultancy</p>
       </div>
       <div style="padding: 20px 24px; background: #ffffff;">
-        <p style="margin: 0 0 14px; font-size: 14px; color: #333;">Hello Team, a new candidate has submitted an enquiry:</p>
         <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
           <tr><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; font-weight: bold; color: #211859;">Full Name</td><td style="padding: 8px; border-bottom: 1px solid #f0ebf8;">{escape(enquiry.full_name)}</td></tr>
           <tr><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; font-weight: bold; color: #211859;">Email</td><td style="padding: 8px; border-bottom: 1px solid #f0ebf8;">{escape(enquiry.email)}</td></tr>
           <tr><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; font-weight: bold; color: #211859;">WhatsApp</td><td style="padding: 8px; border-bottom: 1px solid #f0ebf8;">{escape(enquiry.whatsapp_number)}</td></tr>
           <tr><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; font-weight: bold; color: #211859;">Course</td><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; color: #a62675; font-weight: bold;">{escape(enquiry.preferred_course or 'Not Specified')}</td></tr>
+          <tr><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; font-weight: bold; color: #211859;">Batch</td><td style="padding: 8px; border-bottom: 1px solid #f0ebf8;">{escape(batch_text)}</td></tr>
           <tr><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; font-weight: bold; color: #211859;">City</td><td style="padding: 8px; border-bottom: 1px solid #f0ebf8;">{escape(enquiry.city or 'Not Specified')}</td></tr>
-          <tr><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; font-weight: bold; color: #211859;">Form Source</td><td style="padding: 8px; border-bottom: 1px solid #f0ebf8;">{escape(enquiry.source)}</td></tr>
+          <tr><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; font-weight: bold; color: #211859;">Source</td><td style="padding: 8px; border-bottom: 1px solid #f0ebf8;">{escape(enquiry.source)}</td></tr>
+          <tr><td style="padding: 8px; border-bottom: 1px solid #f0ebf8; font-weight: bold; color: #211859;">Notes</td><td style="padding: 8px; border-bottom: 1px solid #f0ebf8;">{escape(enquiry.notes or '-')}</td></tr>
           <tr><td style="padding: 8px; font-weight: bold; color: #211859;">Registered At</td><td style="padding: 8px;">{escape(created_str)}</td></tr>
         </table>
       </div>
     </div>
     """
 
-    # Student Auto-Reply Thank You Email
     subject_student = "Thank You for Enquiring with Cognisphere Management and Consultancy"
     plain_student = (
         f"Dear {enquiry.full_name},\n\n"
@@ -75,38 +99,29 @@ def _send_emails_task(enquiry):
     </div>
     """
 
+    api_key = getattr(settings, 'BREVO_API_KEY', '')
+    if not api_key:
+        print("BREVO_API_KEY not set — Email preview:\n", plain_team)
+        return
+
     try:
-        connection = get_connection(fail_silently=False)
-        messages = []
-
-        # Ovvoru Team Member-kum individual-aa clean To: address (No Bulk To: list!)
         for recipient in team_recipients:
-            msg_team = EmailMultiAlternatives(
-                subject=subject_team,
-                body=plain_team,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                to=[recipient],
-                reply_to=[enquiry.email],
+            _send_via_brevo(
+                api_key, settings.SENDER_NAME, settings.SENDER_EMAIL,
+                recipient, enquiry.email, enquiry.full_name,
+                subject_team, html_team, plain_team
             )
-            msg_team.attach_alternative(html_team, 'text/html')
-            messages.append(msg_team)
 
-        # Student Auto-Reply Mail
         if enquiry.email:
-            msg_student = EmailMultiAlternatives(
-                subject=subject_student,
-                body=plain_student,
-                from_email=settings.DEFAULT_FROM_EMAIL,
-                to=[enquiry.email],
-                reply_to=[settings.ADMIN_EMAIL],
+            _send_via_brevo(
+                api_key, settings.SENDER_NAME, settings.SENDER_EMAIL,
+                enquiry.email, settings.ADMIN_EMAIL, settings.SENDER_NAME,
+                subject_student, html_student, plain_student
             )
-            msg_student.attach_alternative(html_student, 'text/html')
-            messages.append(msg_student)
 
-        connection.send_messages(messages)
-        print(f"SUCCESS: Individual emails sent to {team_recipients} & student {enquiry.email}!")
+        print(f"SUCCESS (Brevo HTTPS): Sent to {team_recipients} & {enquiry.email}")
     except Exception as exc:
-        print(f"EMAIL ERROR: {exc}")
+        print(f"EMAIL ERROR (Brevo): {exc}")
         traceback.print_exc()
 
 

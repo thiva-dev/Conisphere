@@ -141,21 +141,11 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 RECAPTCHA_SECRET_KEY = os.getenv('RECAPTCHA_SECRET_KEY', '')
 
-# Email Configuration (Auto-switches between Terminal Preview & Real SMTP)
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
-
-if EMAIL_HOST_USER and EMAIL_HOST_PASSWORD:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = 'smtp.gmail.com'
-    EMAIL_PORT = 587
-    EMAIL_USE_TLS = True
-    DEFAULT_FROM_EMAIL = f'Cognisphere MC <{EMAIL_HOST_USER}>'
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-    DEFAULT_FROM_EMAIL = 'info@cognispheremc.com'
-
-ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'info@cognispheremc.com')
+# Brevo HTTPS Email API Configuration (Port 443 — Never Blocked on Cloud!)
+BREVO_API_KEY = os.getenv('BREVO_API_KEY', '').strip()
+SENDER_EMAIL = os.getenv('SENDER_EMAIL', 'cognispheremc@gmail.com').strip()
+SENDER_NAME = os.getenv('SENDER_NAME', 'Cognisphere MC').strip()
+ADMIN_EMAIL = os.getenv('ADMIN_EMAIL', 'cognispheremc@gmail.com').strip()
 OFFICE_TEAM_EMAILS = [
     email.strip()
     for email in os.getenv('OFFICE_TEAM_EMAILS', '').split(',')
