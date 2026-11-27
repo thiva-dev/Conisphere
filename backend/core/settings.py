@@ -178,6 +178,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 FRONTEND_URL = os.getenv('FRONTEND_URL', '').strip().rstrip('/')
 
+FRONTEND_URL = os.getenv('FRONTEND_URL', '').strip().rstrip('/')
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
@@ -185,10 +187,17 @@ CORS_ALLOWED_ORIGINS = [
 if FRONTEND_URL:
     CORS_ALLOWED_ORIGINS.append(FRONTEND_URL)
 
+# All conisphere / cognisphere Vercel preview + production + official domain links for auto-allow!
+CORS_ALLOWED_ORIGIN_REGEXES = [
+    r"^https://co[g]?nisphere.*\.vercel\.app$",
+    r"^https://([a-zA-Z0-9-]+\.)?cognispheremc\.com$",
+]
+
 CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://*.onrender.com",
+    "https://*.vercel.app",
 ]
 if FRONTEND_URL:
     CSRF_TRUSTED_ORIGINS.append(FRONTEND_URL)
