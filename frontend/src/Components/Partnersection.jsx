@@ -85,7 +85,7 @@ function Partnersection() {
         {/* ================= DESKTOP VIEW (>= 1024px): Symmetrical Podium Row ================= */}
         <div className="relative mt-10 hidden lg:flex lg:items-center lg:justify-center gap-4 xl:gap-5">
           {partners.map((p, i) => (
-            <Link
+            <span
               key={p.name}
               to={p.redirectTo}
               aria-label={`${p.name} - ${p.code}`}
@@ -111,7 +111,7 @@ function Partnersection() {
               )}
 
               <span className="pointer-events-none absolute left-[-75%] top-0 h-full w-2/5 -skew-x-[20deg] bg-[#E0B04A]/25 transition-[left] duration-700 group-hover:left-[135%]" />
-            </Link>
+            </span>
           ))}
         </div>
 
@@ -134,7 +134,7 @@ function Partnersection() {
           >
             {partners.map((p) => (
               <SwiperSlide key={`mob-${p.name}`}>
-                <Link
+                <span
                   to={p.redirectTo}
                   aria-label={`${p.name} - ${p.code}`}
                   className="partner-card group relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border-t-[3.5px] border-[#E0B04A] bg-white p-3.5 shadow-[0_12px_26px_rgba(10,8,40,0.38)] h-[112px] sm:h-[124px] w-full"
@@ -158,7 +158,7 @@ function Partnersection() {
                   )}
                     {/* Gold Shine Sweep on Hover */}
                   <span className="pointer-events-none absolute left-[-75%] top-0 h-full w-2/5 -skew-x-[20deg] bg-[#E0B04A]/25 transition-[left] duration-700 group-hover:left-[135%]" />
-                </Link>
+                </span>
               </SwiperSlide>
             ))}
           </Swiper>
