@@ -1,6 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Award } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/pagination';
 import './Partnersection.css';
 
 /* =====================================================================
@@ -78,17 +82,15 @@ function Partnersection() {
           <span className="hidden h-0.5 w-12 sm:block md:w-20 bg-gradient-to-l from-transparent to-[#E0B04A]" />
         </div>
 
-        {/* Partner Cards Inside Box */}
-        <div className="relative mt-8 sm:mt-10 grid grid-cols-2 sm:grid-cols-3 lg:flex lg:items-center lg:justify-center gap-3.5 sm:gap-4 xl:gap-5">
+        {/* ================= DESKTOP VIEW (>= 1024px): Symmetrical Podium Row ================= */}
+        <div className="relative mt-10 hidden lg:flex lg:items-center lg:justify-center gap-4 xl:gap-5">
           {partners.map((p, i) => (
             <Link
               key={p.name}
               to={p.redirectTo}
               aria-label={`${p.name} - ${p.code}`}
               style={{ animationDelay: `${0.1 + i * 0.1}s, ${0.4 + i * 0.25}s` }}
-              className={`partner-card group relative flex flex-col items-center justify-center overflow-hidden rounded-xl sm:rounded-2xl border-t-[3.5px] border-[#E0B04A] bg-white p-3 shadow-[0_12px_28px_rgba(10,8,40,0.4)] transition-[transform,box-shadow] duration-300 hover:-translate-y-2.5 hover:scale-105 hover:shadow-[0_20px_42px_rgba(166,38,117,0.5)] h-[96px] sm:h-[115px] ${
-                p.isFeatured ? 'col-span-2 sm:col-span-1 max-w-[210px] sm:max-w-none mx-auto w-full' : 'w-full'
-              } ${p.desktopSize}`}
+              className={`partner-card group relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border-t-[3.5px] border-[#E0B04A] bg-white p-3 shadow-[0_12px_28px_rgba(10,8,40,0.4)] transition-[transform,box-shadow] duration-300 hover:-translate-y-2.5 hover:scale-105 hover:shadow-[0_20px_42px_rgba(166,38,117,0.5)] ${p.desktopSize}`}
             >
               {p.src ? (
                 <img
@@ -99,19 +101,67 @@ function Partnersection() {
               ) : (
                 <div className="flex flex-col items-center justify-center text-center">
                   <Award className="w-5 h-5 text-[#E0B04A] mb-1" />
-                  <span className="text-[11px] sm:text-xs font-bold text-[#211859] leading-tight">
+                  <span className="text-xs font-bold text-[#211859] leading-tight">
                     {p.name}
                   </span>
-                  <span className="mt-1 text-[9.5px] sm:text-[10.5px] font-semibold px-2 py-0.5 rounded-full bg-[#f3effa] text-[#a62675]">
+                  <span className="mt-1 text-[10.5px] font-semibold px-2 py-0.5 rounded-full bg-[#f3effa] text-[#a62675]">
                     {p.code}
                   </span>
                 </div>
               )}
 
-              {/* Gold Shine Sweep on Hover */}
               <span className="pointer-events-none absolute left-[-75%] top-0 h-full w-2/5 -skew-x-[20deg] bg-[#E0B04A]/25 transition-[left] duration-700 group-hover:left-[135%]" />
             </Link>
           ))}
+        </div>
+
+        {/* ================= MOBILE & TABLET VIEW (< 1024px): Smooth Slider ================= */}
+        <div className="relative mt-7 block lg:hidden">
+          <Swiper
+            modules={[Autoplay, Pagination]}
+            centeredSlides
+            loop
+            grabCursor
+            speed={750}
+            autoplay={{ delay: 2400, disableOnInteraction: false, pauseOnMouseEnter: true }}
+            pagination={{ clickable: true }}
+            breakpoints={{
+              0: { slidesPerView: 1.55, spaceBetween: 14 },
+              480: { slidesPerView: 2.2, spaceBetween: 16 },
+              640: { slidesPerView: 3, spaceBetween: 18 },
+            }}
+            className="partners-mobile-swiper"
+          >
+            {partners.map((p) => (
+              <SwiperSlide key={`mob-${p.name}`}>
+                <Link
+                  to={p.redirectTo}
+                  aria-label={`${p.name} - ${p.code}`}
+                  className="partner-card group relative flex flex-col items-center justify-center overflow-hidden rounded-2xl border-t-[3.5px] border-[#E0B04A] bg-white p-3.5 shadow-[0_12px_26px_rgba(10,8,40,0.38)] h-[112px] sm:h-[124px] w-full"
+                >
+                  {p.src ? (
+                    <img
+                      src={p.src}
+                      alt={p.name}
+                      className="max-h-[82%] max-w-[88%] object-contain"
+                    />
+                  ) : (
+                    <div className="flex flex-col items-center justify-center text-center">
+                      <Award className="w-5 h-5 text-[#E0B04A] mb-1" />
+                      <span className="text-[11px] font-bold text-[#211859] leading-tight">
+                        {p.name}
+                      </span>
+                      <span className="mt-1 text-[9.5px] font-semibold px-2 py-0.5 rounded-full bg-[#f3effa] text-[#a62675]">
+                        {p.code}
+                      </span>
+                    </div>
+                  )}
+                    {/* Gold Shine Sweep on Hover */}
+                  <span className="pointer-events-none absolute left-[-75%] top-0 h-full w-2/5 -skew-x-[20deg] bg-[#E0B04A]/25 transition-[left] duration-700 group-hover:left-[135%]" />
+                </Link>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
       </div>
@@ -120,3 +170,4 @@ function Partnersection() {
 }
 
 export default Partnersection;
+ 

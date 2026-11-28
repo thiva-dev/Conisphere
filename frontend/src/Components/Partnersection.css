@@ -164,3 +164,30 @@
   width: 24px;
   background: linear-gradient(90deg, #211859, #a62675);
 }
+
+
+
+/* ================= MOBILE PARTNER SWIPER SLIDER ================= */
+.partners-mobile-swiper {
+  padding: 10px 4px 36px !important;
+}
+
+/* Loop clones invisible aagama irukka opacity: 1 force panrom */
+.partners-mobile-swiper .partner-card {
+  opacity: 1 !important;
+  animation: partners-float 6s ease-in-out infinite;
+}
+
+.partners-mobile-swiper .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.4);
+  opacity: 1;
+  transition: all 0.3s ease;
+}
+
+.partners-mobile-swiper .swiper-pagination-bullet-active {
+  width: 24px;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, #E0B04A, #e879c0);
+}
